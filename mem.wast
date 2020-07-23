@@ -100,8 +100,8 @@
     i32.load              ;;[地址0]已用的内存字节数total_bytes_size入栈
     i32.const 7
     i32.add               ;;total_bytes_size+7
-    i32.const -8     
-    i32.and               ;;size_and_minus_8= (total_bytes_size+7)&-8
+    i32.const -8          ;;-8 二进制表示1 1111111 11111111 11111111 11111000
+    i32.and               ;;size_and_minus_8=(total_bytes_size+7)&-8, total_bytes_size 8字节对齐
     tee_local 0           ;;[0]=size_and_minus_8
     i32.store offset=8196 ;;[8196]=size_and_minus_8
     i32.const 0
@@ -203,7 +203,7 @@
         get_local 7
         i32.const 15
         i32.add
-        i32.const -16
+        i32.const -16     ;;-16 二进制表示1 1111111 11111111 11111111 11110000
         i32.and
         i32.sub
         tee_local 2
@@ -249,7 +249,7 @@
     set_local 9           ;;[9]指向buffer第二个4字节
     block  ;; label = @1
       get_local 7
-      i32.const -4
+      i32.const -4        ;;-4 二进制表示1 1111111 11111111 11111111 11111100
       i32.and
       i32.const 4
       i32.ne
