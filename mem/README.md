@@ -1,4 +1,4 @@
-wasm.index
+wasm.mem
 -----------
 
  - How to Build 
@@ -10,7 +10,7 @@ $ cmake ..
 $ make
 ```
  - After build 
-   - The built smart contract is under the 'index' directory in the 'build' directory
-   - You can find index.wasm and index.abi in the './build/index' directory
+   - The built smart contract is under the 'mem' directory in the 'build' directory
+   - You can find mem.wasm and mem.abi in the './build/mem' directory
 
 
